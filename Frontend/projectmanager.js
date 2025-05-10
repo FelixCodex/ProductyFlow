@@ -200,10 +200,9 @@ function disconnect() {
 }
 
 function updateInfo(message) {
-	console.log(message)
-	// if (message.userId != userId) {
-	// 	loadProject(surfaceList, message, true);
-	// }
+	if (message.userId != userId) {
+		loadProject(surfaceList, message, true);
+	}
 };
 
 
