@@ -1,0 +1,94 @@
+CREATE TABLE users (
+	id BIGINT NOT NULL auto_increment,
+    username varchar(50) NOT NULL unique,
+    email varchar(50) NOT NULL UNIQUE,
+    password varchar(50) NOT NULL,
+    img varchar(50) default "user.jpg",
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    primary key(ID)
+);
+
+
+CREATE TABLE node_projects (
+    id BIGINT NOT NULL auto_increment,
+	userid BIGINT NOT NULL,
+    projectname varchar(50) NOT NULL,
+    project varchar(550) ,
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    foreign key(userid) references users(id),
+    primary key(id)
+);
+
+
+CREATE TABLE link_projects (
+    id BIGINT NOT NULL auto_increment,
+	projectid BigINT NOT NULL unique,
+    project varchar(550) ,
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    foreign key(projectid) references node_projects(id),
+    primary key(id)
+);
+
+
+CREATE TABLE list_projects (
+    id BIGINT NOT NULL auto_increment,
+	userid BIGINT NOT NULL,
+    projectname varchar(50) NOT NULL,
+    project varchar(550) ,
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    foreign key(userid) references users(id),
+    primary key(id)
+);
+
+
+CREATE TABLE calendar_lists (
+    id BIGINT NOT NULL auto_increment,
+	userid BIGINT NOT NULL,
+    date varchar(12) NOT NULL,
+    project varchar(550) ,
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    foreign key(userid) references users(id),
+    primary key(id)
+);
+
+
+CREATE TABLE project_groups(
+	id BIGINT NOT NULL auto_increment,
+    groupname varchar(50) NOT NULL,
+    useradmin BIGINT NOT NULL,
+    joinlink varchar(100) not null unique,
+    img varchar(50) default "group.jpg",
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    primary key(id)
+);
+
+
+CREATE TABLE group_list_projects (
+    id BIGINT NOT NULL auto_increment,
+	groupid BIGINT NOT NULL,
+    projectname varchar(50) NOT NULL,
+    project varchar(550) ,
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    foreign key(groupid) references project_groups(id),
+    primary key(id)
+);
+
+
+CREATE TABLE group_calendar_lists (
+    id BIGINT NOT NULL auto_increment,
+	groupid BIGINT NOT NULL,
+    date varchar(12) NOT NULL,
+    project varchar(550) ,
+    created_at timestamp NOT NULL DEFAULT (NOW()),
+    foreign key(groupid) references project_groups(id),
+    primary key(id)
+);
+
+
+CREATE TABLE member_link(
+	id BIGINT not null unique,
+	userid BIGINT NOT NULL,
+    groupid BIGINT NOT NULL,
+    foreign key(userid) references users(id),
+    foreign key(groupid) references project_groups(id)
+);
