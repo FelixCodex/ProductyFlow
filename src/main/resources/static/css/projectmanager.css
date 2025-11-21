@@ -150,11 +150,11 @@ body {
 	border-bottom: 1px solid var(--border-light-primary);
 	text-decoration: none;
 	list-style-type: none;
-	max-height: 32px;
-	min-height: 28px;
+	/* max-height: 32px; */
+	/* min-height: 28px; */
 	overflow: hidden;
 	position: relative;
-	border-radius: 8px;
+	/* border-radius: 8px; */
 	margin-bottom: 4px;
 	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 	user-select: none;
@@ -170,26 +170,26 @@ body {
 }
 
 .list-element-main {
-	min-height: 32px;
+	/* min-height: 32px; */
 }
 
 .list-element-main:hover {
-	min-height: 32px;
+	/* min-height: 32px; */
 	height: auto;
-	border-bottom: none;
+	/* border-bottom: none; */
 }
 
 .list-element-box {
 	display: flex;
 	flex-direction: row;
-	padding: 6px 70px 6px 8px;
+	padding: 6px 6px 6px 8px;
 	align-items: center;
 	gap: 8px;
 }
 
-.list-element-main > .list-element-box {
+/* .list-element-main > .list-element-box {
 	height: 28px;
-}
+} */
 
 .list-element-main:hover > .list-element-box {
 	height: auto;
@@ -204,22 +204,19 @@ body {
 }
 
 .list-element-checkbox {
-	margin: 3px 0 0 2px;
 	color: var(--text-light-color);
 	transition: color 0.3s ease;
 	cursor: pointer;
 }
 
-.list-element-edit,
-.list-element-del,
-.list-element-star,
-.list-element-copy {
+.list-element-edit-option {
 	margin: 3px 1px 1px 2px;
 	color: var(--buttons-light-icon);
 	transition: all 0.2s ease;
 	cursor: pointer;
 	padding: 4px;
 	border-radius: 4px;
+	height: fit-content;
 }
 
 .list-element-edit:hover {
@@ -242,12 +239,19 @@ body {
 	background: rgba(251, 191, 36, 0.1);
 }
 
+.list-element-box:hover > .modifi-box {
+	background-color: var(--background-light-tertiary);
+}
+
 .modifi-box {
 	display: flex;
 	flex-direction: row;
 	position: absolute;
 	right: 8px;
 	gap: 4px;
+	transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	height: 100%;
+	align-items: center;
 }
 
 .fa-check-square-o {
@@ -266,7 +270,7 @@ body {
 	width: 1210px;
 	min-height: 23px;
 	height: 23px;
-	max-width: 90%;
+	max-width: 100%;
 	border: none;
 	background-color: transparent;
 	font-size: 0.95rem;
@@ -279,7 +283,6 @@ body {
 .list-element-texta:focus {
 	outline: 2px solid var(--buttons-light-background);
 	outline-offset: 2px;
-	border-radius: 6px;
 }
 
 .list-element-input:focus {
@@ -527,12 +530,14 @@ body {
 /* Inputs */
 .list-input {
 	height: 40px;
-	font-size: 1.125rem;
+	font-size: 1.375rem;
+	font-weight: 600;
 	border-radius: 8px;
+	margin-left: 5px;
 	width: 85%;
 	border: 1px solid var(--border-light-primary);
-	padding: 8px 12px;
-	background: var(--background-light-primary);
+	/* padding: 8px 12px;*/
+	background: var(--background-light-secondary);
 	color: var(--text-light-color);
 	transition: all 0.2s ease;
 }
@@ -588,6 +593,11 @@ body {
 }
 
 .list-modifi-btn {
+	color: var(--buttons-light-icon);
+	padding: 12px;
+	border-radius: 4px;
+	margin: 0 1px;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -599,10 +609,12 @@ body {
 
 .del:hover {
 	color: var(--red);
+	background: rgba(239, 68, 68, 0.1);
 }
 
 .edit:hover {
 	color: var(--green);
+	background: rgba(16, 185, 129, 0.1);
 }
 
 .fa-save {

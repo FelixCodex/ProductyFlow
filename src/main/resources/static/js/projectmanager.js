@@ -193,7 +193,14 @@ saveList.addEventListener('click', e => {
 plus.addEventListener('click', e => {
 	let currentProject = getActualProject();
 	if (currentProject != 'null') {
-		const element = createListElement('', 'f', true, surfaceList, saveList);
+		const element = createListElement(
+			'',
+			'f',
+			'f',
+			true,
+			surfaceList,
+			saveList
+		);
 		surfaceList.appendChild(element);
 		e.currentTarget.nextElementSibling.nextElementSibling.classList.add(
 			'unsave'
@@ -225,6 +232,23 @@ edit.addEventListener('click', e => {
 	let currentProject = getActualProject();
 	if (currentProject != 'null') {
 		editProjectName(e.currentTarget.parentNode.parentNode, saveList);
+	}
+});
+
+paste.addEventListener('click', () => {
+	let currentProject = getActualProject();
+	if (currentProject != 'null') {
+		console.log(saveList);
+		const element = createListElement(
+			localStorage.getItem('clipboard'),
+			'f',
+			'f',
+			true,
+			surfaceList,
+			saveList
+		);
+		surfaceList.appendChild(element);
+		saveList.classList.add('unsave');
 	}
 });
 
@@ -304,21 +328,6 @@ themeBtn.addEventListener('click', e => {
 	} else if (localStorage.getItem('theme') == 'd') {
 		sunset(current);
 		themeChange(false, current);
-	}
-});
-
-paste.addEventListener('click', () => {
-	let currentProject = getActualProject();
-	if (currentProject != 'null') {
-		const element = createListElement(
-			localStorage.getItem('clipboard'),
-			'f',
-			true,
-			surfaceList,
-			saveList
-		);
-		surfaceList.appendChild(element);
-		saveList.classList.add('unsave');
 	}
 });
 

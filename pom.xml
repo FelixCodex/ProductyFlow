@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>DrawAwesome2</artifactId>
+	<artifactId>ProductyFlow</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DrawAwesome2</name>
-	<description>Demo project for Spring Boot</description>
+	<name>ProductyFlow</name>
+	<description>A simple yet powerful project, task, and node management system designed to boost productivity for individuals and teams through real-time collaboration and intuitive organization.</description>
 	<url/>
 	<licenses>
 		<license/>

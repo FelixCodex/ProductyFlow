@@ -97,15 +97,10 @@ export function setInputEventListener(l, txHeight, saveBtn) {
 	}
 
 	l.addEventListener('input', OnInput, false);
-
 	l.addEventListener('click', e => {
 		e.stopPropagation();
 	});
 	l.addEventListener('dblclick', e => {
-		e.stopPropagation();
-	});
-	l.addEventListener('dragstart', e => {
-		e.preventDefault();
 		e.stopPropagation();
 	});
 	l.addEventListener('blur', e => {
@@ -427,10 +422,34 @@ export function createListElement(text, check, fav, main, surface, saveList) {
 	li.classList.add('list-element', 'theme');
 	li.setAttribute('draggable', 'true');
 
-	star.classList.add('fa', 'fa-star', 'list-element-star', 'disappear');
-	edit.classList.add('fa', 'fa-edit', 'list-element-edit', 'disappear');
-	del.classList.add('fa', 'fa-trash', 'list-element-del', 'disappear');
-	copy.classList.add('fa', 'fa-copy', 'list-element-copy', 'disappear');
+	star.classList.add(
+		'fa',
+		'fa-star',
+		'list-element-star',
+		'disappear',
+		'list-element-edit-option'
+	);
+	edit.classList.add(
+		'fa',
+		'fa-edit',
+		'list-element-edit',
+		'disappear',
+		'list-element-edit-option'
+	);
+	del.classList.add(
+		'fa',
+		'fa-trash',
+		'list-element-del',
+		'disappear',
+		'list-element-edit-option'
+	);
+	copy.classList.add(
+		'fa',
+		'fa-copy',
+		'list-element-copy',
+		'disappear',
+		'list-element-edit-option'
+	);
 
 	div.classList.add('modifi-box');
 	texta.classList.add('list-element-texta', 'hide');
